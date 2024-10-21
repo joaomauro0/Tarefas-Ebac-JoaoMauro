@@ -5,6 +5,10 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.services.sheets.v4.Sheets;
 import com.google.api.services.sheets.v4.SheetsScopes;
+
+import Service.GerarConvitesService;
+import Service.GoogleSheetsService;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,7 +27,7 @@ public class DiscordInviteBotApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DiscordInviteBotApplication.class, args);
-    }
+    
 
     // Bean para criar o cliente Sheets da API do Google
     @Bean
@@ -67,5 +71,6 @@ public class DiscordInviteBotApplication {
         GoogleCredential credential = GoogleCredential.fromStream(new FileInputStream(CREDENTIALS_FILE_PATH))
                 .createScoped(Collections.singleton(SheetsScopes.SPREADSHEETS));
 
-    }
+    
+}
 }
